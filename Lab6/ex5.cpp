@@ -63,7 +63,7 @@ class lista
     public:
     produse *head;
     void adaugare(produse *pr);
-    void afisare_lista();
+    void afisare_lista(int x);
 };
 
 void lista::adaugare(produse *pr)
@@ -91,7 +91,7 @@ void lista::adaugare(produse *pr)
     head=pr;
 }
 
-void lista::afisare_lista()
+void lista::afisare_lista(int x)
 {
     produse *pr;
     pr=head;
@@ -103,7 +103,7 @@ void lista::afisare_lista()
     {
         while(pr)
         {
-            
+            if(pr->tip==x)
             pr->afisare_prod();
             pr=pr->urm;
         }
@@ -196,8 +196,10 @@ int main()
             introducere(l,1);
             break;
             case 3:
-            l.afisare_lista();
+            l.afisare_lista(0);
             break;
+            case 4:
+            l.afisare_lista(1);
             case 0:
             exit(0);
             break;
