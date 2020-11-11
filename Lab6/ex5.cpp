@@ -18,7 +18,7 @@ class produse
         tip=t;
         urm=NULL;
     }
-    virtual void afisare_prod()
+    virtual void afisare()
     {
         cout<<"Producator: "<<producator<<endl;
         cout<<"Denumire: "<<denumire<<endl<<endl;
@@ -34,9 +34,9 @@ class creioane:public produse
     {
         mina=m;
     }
-    void afisare_creioane()
+    void afisare()
     {
-        produse::afisare_prod();
+        produse::afisare();
         cout<<"Tip mina: "<<mina<<endl; 
     }
     friend class lista;
@@ -50,9 +50,9 @@ class pixuri:public produse
     {
         culoare=cul;
     }
-    void afisare_pixuri()
+    void afisare()
     {
-        produse::afisare_prod();
+        produse::afisare();
         cout<<"Culoare: "<<culoare<<endl;
     }
     friend class lista;
@@ -63,7 +63,7 @@ class lista
     public:
     produse *head;
     void adaugare(produse *pr);
-    void afisare_lista(int x);
+    void afisare(int x);
 };
 
 void lista::adaugare(produse *pr)
@@ -91,7 +91,7 @@ void lista::adaugare(produse *pr)
     head=pr;
 }
 
-void lista::afisare_lista(int x)
+void lista::afisare(int x)
 {
     produse *pr;
     pr=head;
@@ -104,7 +104,7 @@ void lista::afisare_lista(int x)
         while(pr)
         {
             if(pr->tip==x)
-            pr->afisare_prod();
+            pr->afisare();
             pr=pr->urm;
         }
 
@@ -196,10 +196,10 @@ int main()
             introducere(l,1);
             break;
             case 3:
-            l.afisare_lista(0);
+            l.afisare(0);
             break;
             case 4:
-            l.afisare_lista(1);
+            l.afisare(1);
             case 0:
             exit(0);
             break;
